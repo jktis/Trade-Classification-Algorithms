@@ -4,7 +4,7 @@ Module to classify financial markets transactions data into
 buyer- and seller-initiated trades. 
 
 Available methods are the Lee-Ready algorithm (Lee and Ready, 1991),
-the Bulk-Volume classification algortihm (Easley et al., 2012), the 
+the Bulk-Volume classification algorithm (Easley et al., 2012), the 
 algorithm of Ellis et al. (2000), the algorithm of Chakrabarty et al. 
 (2007) and the Full-Information algorithm of Jurkatis (2020). 
 

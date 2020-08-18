@@ -347,7 +347,7 @@ class TradeClassification:
         Parameters
         ----------
         method : str
-            Must one of the following: 'ds_1', 'ds_2', 'ds_3' (different versions of 
+            Must be one of the following: 'ds_1', 'ds_2', 'ds_3' (different versions of 
             the FI algorithm), 'lee_ready', 'bvc', 'emo', 'clvn'. See Jurkatis (2020).
         freq : float or int
             Timestamp precision of the data as measured in 10^-freq of a second. 
