@@ -30,7 +30,7 @@ $ python setup.py build_ext -i
 from classifytrades import TradeClassification 
 
 tc = TradeClassification(df,Ask=Ask,Bid=Bid)
-tc.classifytrades(method='lee_ready', freq=0, reduce_precision=True)
+tc.classify(method='lee_ready', freq=0, reduce_precision=True)
 
 print(tc.df_tr.head())
 ```
