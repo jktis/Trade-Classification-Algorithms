@@ -29,15 +29,6 @@ $ python setup.py build_ext -i
 ```python
 from classifytrades import TradeClassification 
 
-# df : pandas.DataFrame with transaction data, assumed to be deduplicated, ie. only one record per trade between two counterparties (only relevant for FI and BVC). The dataframe must contain at least a `time` column containing the transaction times measured in seconds (i.e. timestamps of precision higher than seconds are expressed as floats) and a `price` column containing the transaction prices. 
-# For the FI algorithm the dataframe must also contain a `vol` column with the number of shares exchanged in the transaction.
-
-# Ask : pandas.DataFrame (optional; default None)
-# For the FI, LR, EMO and CLNV algorithms order book data is required.  The dataframe must contain a `time` column indicating the time of the  quote change expressed in seconds and a `price` column with the best ask.
-# For the FI algorithm the dataframe must also contain the volume available at the best ask.
-
-# Bid : analogous to `Ask`. 
-
 tc = TradeClassification(df,Ask=Ask,Bid=Bid)
 tc.classifytrades(method='lee_ready', freq=0, reduce_precision=True)
 
@@ -45,14 +36,22 @@ print(tc.df_tr.head())
 ```
 Other method arguments are `'clnv'`, `'emo'`, `'bvc'`, `'ds_1'`, `'ds_2'`, `'ds_3'`.
 
+- `df` : pandas.DataFrame with transaction data. 
+Assumed to be deduplicated, ie. only one record per trade between two counterparties (only relevant for FI and BVC).
+The dataframe must contain at least a `time` column containing the transaction times measured in seconds (i.e. timestamps of precision higher than seconds are expressed as floats) and a `price` column containing the transaction prices. For the FI algorithm the dataframe must also contain a `vol` column with the number of shares exchanged in the transaction.
+- `Ask` : pandas.DataFrame (optional; default None).
+For the FI, LR, EMO and CLNV algorithms order book data are required, as well as for computing transaction costs. The dataframe must contain a `time` column indicating the time of the  quote change expressed in seconds and a `price` column with the best ask. For the FI algorithm the dataframe must also contain the volume available at the best ask.
+- `Bid` : analogous to `Ask`. 
+
+
 ### The FI algorithm
-The FI algorithm come in three different versions, depending on the data structure (see Jurkatis, 2020).
+The FI algorithm comes in three different versions, depending on the data structure (see Jurkatis, 2020).
 
 #### Data Structure 1
-For data where each transaction at the ask or bid has must have a corresponding reduction in the volume available at the respective quote and where trades and quotes can be assumed to be recorded in the same order in which they were executed use `method = 'ds_1'`.  
+For data where each transaction at the ask or bid must have a corresponding reduction in the volume available at the respective quote and where trades and quotes can be assumed to be recorded in the same order in which they were executed use `method = 'ds_1'`.  
 
 #### Data Structure 2
-For data where, contrary to DS1, quote changes that are due to the same trades are aggregated, use `method='ds_2'`. Aggregated quote changes mean that, for example, a buy order for 100 shares that is executed against two
+For data where, contrary to DS1, quote changes that are due to the same trade are aggregated, use `method='ds_2'`. Aggregated quote changes mean that, for example, a buy order for 100 shares that is executed against two
 standing sell limit-orders for 50 shares each will be reflected in a single change at the ask of a total change in volume of 100 shares, instead of two separate changes of 50 shares.
 
 #### Data Structure 3
@@ -64,7 +63,7 @@ The module also allows to compute the order imbalance, defined as the buyer-init
 ```python
 oi = tc.get_orderimbalance(10,bin_type='vol')
 ```
-splits the data into 10 equal volume intervals (individual trades are not broken up between intervals so difference in total volume between the intervals may remain) and computes the order imbalance for each.
+splits the data into 10 equal volume intervals (individual trades are not broken up between intervals so differences in total volume between the intervals may remain) and computes the order imbalance for each.
 
 To control the length of the intervals rather than the number use
 ```python
@@ -81,7 +80,7 @@ execost = tc.impl_sf()
 which can susequently be used in a price impact regression. 
 
 ```python
-propcost = estimate_execost(execost)
+propcost = tc.estimate_execost(execost)
 ```
 
 # References
