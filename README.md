@@ -85,17 +85,14 @@ propcost = tc.estimate_execost(execost)
 
 # References
 
-Chakrabarty, B., Li, B., Nguyen, V., Van Ness, R.A., 2007. Trade classification
-algorithms for electronic communications network trades. Journal of Banking &
+Chakrabarty, B., Li, B., Nguyen, V., Van Ness, R.A., 2007. [Trade classification algorithms for electronic communications network trades](https://doi.org/10.1016/j.jbankfin.2007.03.003). Journal of Banking &
 Finance 31, 3806–3821.
 
-Easley, D., de Prado, M.M.L., O’Hara, M., 2012. Flow toxicity and liquidity in a
-high-frequency world. Review of Financial Studies 25, 1457–1493.
+Easley, D., de Prado, M.M.L., O’Hara, M., 2012. [Flow toxicity and liquidity in a high-frequency world](https://doi.org/10.1093/rfs/hhs053). Review of Financial Studies 25, 1457–1493.
 
-Ellis, K., Michaely, R., O’Hara, M., 2000. The accuracy of trade classification rules:
-Evidence from Nasdaq. Journal of Financial and Quantitative Analysis 35, 529–551.
+Ellis, K., Michaely, R., O’Hara, M., 2000. [The accuracy of trade classification rules: Evidence from Nasdaq](https://doi.org/10.2307/2676254). Journal of Financial and Quantitative Analysis 35, 529–551.
 
-Jurkatis, S., 2020. Inferring Trade Directions in Fast Markets. Unpublished Mimeo
+Jurkatis, S., 2020. [Inferring trade directions in fast markets](https://doi.org/10.1016/j.finmar.2021.100635). Journal of Financial Markets, *forthcoming*
 
-Lee, C., Ready, M.J., 1991. Inferring trade direction from intraday data. The Journal
+Lee, C., Ready, M.J., 1991. [Inferring trade direction from intraday data](https://doi.org/10.1111/j.1540-6261.1991.tb02683.x). The Journal
 of Finance 46, 733–746.
