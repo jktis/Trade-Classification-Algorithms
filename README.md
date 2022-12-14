@@ -92,7 +92,7 @@ Easley, D., de Prado, M.M.L., O’Hara, M., 2012. [Flow toxicity and liquidity i
 
 Ellis, K., Michaely, R., O’Hara, M., 2000. [The accuracy of trade classification rules: Evidence from Nasdaq](https://doi.org/10.2307/2676254). Journal of Financial and Quantitative Analysis 35, 529–551.
 
-Jurkatis, S., 2020. [Inferring trade directions in fast markets](https://doi.org/10.1016/j.finmar.2021.100635). Journal of Financial Markets, *forthcoming*
+Jurkatis, S., 2020. [Inferring trade directions in fast markets](https://doi.org/10.1016/j.finmar.2021.100635). Journal of Financial Markets, Vol 58, 100635
 
 Lee, C., Ready, M.J., 1991. [Inferring trade direction from intraday data](https://doi.org/10.1111/j.1540-6261.1991.tb02683.x). The Journal
 of Finance 46, 733–746.
